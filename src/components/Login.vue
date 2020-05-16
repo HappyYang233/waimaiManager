@@ -24,6 +24,7 @@
     </div>
 </template>
 <script>
+    import {initRouter} from '../router/index'
 export default {
     data() {
         return {
@@ -65,12 +66,21 @@ export default {
                     }
                     else if(data.code ==33)
                     {
+                        // this.$http.defaults.baseURL="https://www.easy-mock.com/mock/5ebb1a21d3f8d30def6c4938";
+                        // let res =await  this.$http.get("/example/getLeftMenu");
+                        let msg = data.msg;
+                        let token = msg.token;
+                        console.log(msg);
                         this.$message.success("登陆成功");
-                        console.log(data.msg);
-                        sessionStorage.setItem("Token",data.msg);
+                        sessionStorage.setItem("Token",token);
+                        this.$store.commit("setUsername",msg.username);
+                        this.$store.commit("setLeftMenu",msg.left);
+                        initRouter();
                         this.$router.push("/home");
+
                     }
                     else{
+                        sessionStorage.clear();
                         this.$message.error("请求失败，请重试");
                     }
 

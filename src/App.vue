@@ -5,9 +5,13 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-  
+  import {initRouter} from "./router";
+
+  export default {
+  name: 'app',
+  created() {
+    initRouter();
+  }
 }
 </script>
 
