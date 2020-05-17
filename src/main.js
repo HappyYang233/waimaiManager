@@ -26,6 +26,16 @@ axios.interceptors.request.use(
     error => {
       return Promise.reject(error);
     });
+axios.interceptors.response.use(res=>{
+    if(res.data.code==10)
+    {
+
+        router.push("/login");
+        console.log("走拦截器");
+    }
+    return res;
+    }
+    )
 //  配置公共的请求头
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // 配置公共的 post 的 Content-Type

@@ -9,7 +9,8 @@
             </el-button>
         </el-header>
         <el-container>
-            <el-aside width="200px">
+            <el-aside :width="iscollapse?'64px':'200px'">
+                <div class="toggle-button" @click="toggleCollapse">|||</div>
                 <el-menu
                         default-active="2"
                         class="el-menu-vertical-demo"
@@ -17,6 +18,10 @@
                         text-color="#fff"
                         active-text-color="#ffd04b"
                         :unique-opened="true"
+                        :collapse="iscollapse"
+                        :collapse-transition="false"
+                        router
+                        :default-active="$route.path"
                 >
                     <el-submenu :index="item.id+''"  v-for='item in menuList' :key="item.id">
                         <!--template是 子菜单的模板-->
@@ -24,13 +29,13 @@
                             <i class="el-icon-s-operation"></i>
                             <span>{{item.name}}</span>
                         </template>
-                        <el-menu-item :index="child.id+''" v-for="child in item.children" :key="child.id">{{child.name}}</el-menu-item>
+                        <el-menu-item :index="child.path" v-for="child in item.children" :key="child.id" >{{child.name}}</el-menu-item>
 
                     </el-submenu>
 
                 </el-menu>
             </el-aside>
-            <el-main>Main</el-main>
+            <el-main><router-view></router-view></el-main>
         </el-container>
     </el-container>
 </template>
@@ -42,7 +47,8 @@
         data(){
             return {
                     menuList:[],
-                    username:''
+                    username:'',
+                    iscollapse:false
             }
         },
         created(){
@@ -50,6 +56,9 @@
           this.username=sessionStorage.getItem("username");
         },
         methods:{
+            toggleCollapse(){
+                this.iscollapse=!this.iscollapse;
+            },
             loginOut(){
                 this.$confirm('确定注销登录？', '提示', {
                     confirmButtonText: '确定',
@@ -92,6 +101,15 @@
         background-color: #323744;
         .el-menu{
             border-right: none;
+
+        }
+        .toggle-button{
+            background-color: #4a5064;
+            font-size: 10px;
+            line-height: 24px;
+            letter-spacing: 0.2em;
+            text-align: center;
+            color: #fff;
         }
     }
     .el-main{

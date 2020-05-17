@@ -13,7 +13,7 @@ import notice from  '../components/resInfo/notice'
 import resInfo from  '../components/resInfo/resInfo'
 import  admin from '../components/user/admin'
 import  users from '../components/user/users'
-
+import Welcome from  '../components/Welcome'
 Vue.use(VueRouter)
 
 
@@ -30,10 +30,12 @@ const routes = [
     {
       path:'/home',
       name:'home',
+      redirect:'/welcome',
       component:Home,
         children:[
+            {path:'/welcome',component:Welcome},
             {path:'/foodList',component:foodList},
-            {path:'/foodCategory',component:foodList},
+            {path:'/foodCategory',component:foodCategory},
             {path:'/allOrder',component:allOrder},
             {path:'/todayOrder',component:todayOrder},
             {path:'/address',component:address},
@@ -51,9 +53,9 @@ const  ResInfo= {path:'/resInfo',component:resInfo};
 const   Admin ={path:'/admin',component:admin};
 const  Users ={path:'/users',component:users};
 const map = {
-      'infoManaging':ResInfo,
-      'userManaging':Users,
-      'resUserManaging':Admin
+      '/resInfo':ResInfo,
+      '/users':Users,
+      '/admin':Admin
   };
 const router = new VueRouter({
   routes
