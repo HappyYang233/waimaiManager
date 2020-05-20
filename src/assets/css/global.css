@@ -10,3 +10,7 @@ html,body,#app{
 .el-pagination{
     margin-top: 20px;
 }
+body .el-table th.gutter{
+    display: table-cell!important;
+}
+

@@ -70,6 +70,13 @@ router.beforeEach((to,from ,next)=>{
     if(!token) return next("login");
     next();
 });
+router.afterEach((to,from)=>{
+    if(from.path != '/login' && from.path != '/' && to.path == '/login'){
+        window.sessionStorage.clear();
+        window.location.reload();
+    }
+});
+
 export  function initRouter() {
     console.log(router);
     const currentRoutes = router.options.routes;

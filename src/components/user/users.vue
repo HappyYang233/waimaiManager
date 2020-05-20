@@ -61,7 +61,7 @@
                         label="状态">
                     <template slot-scope="scope">
                         <el-switch
-                                v-model="model"
+                                v-model="scope.row.status"
                                 active-color="#13ce66"
                                 inactive-color="#ff4949">
                         </el-switch>
@@ -127,7 +127,7 @@
         </el-dialog>
         <!--编辑用户信息对话框-->
         <el-dialog title="收货地址" :visible.sync="editDialogVisible">
-            <el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">
+            <el-form ref="editFormRef" :model="editForm" :rules="editFormRules" label-width="80px">
                 <el-form-item label="用户id" prop="id">
                     <el-input v-model="editForm.id" disabled></el-input>
                 </el-form-item>
@@ -268,7 +268,7 @@
         methods:{
 
            async getUserList(){
-                let {data} = await  this.$http.get("/admin/findUserByPage",{
+                let {data} = await  this.$http.get("/findUserByPage",{
                     params:this.queryInfo
                 });
                 if(data.code===1)
@@ -290,7 +290,7 @@
                    if(valid==true)
                    {
                        let {data}=await this.$http.post(
-                           "/admin/addUser",
+                           "/addUser",
                            this.ruleForm
                        );
                        if(data.code==1)
@@ -313,7 +313,7 @@
                this.$refs.ruleForm.resetFields();
             },
           async   editUser(id){
-                const  {data} = await this.$http.get("/admin/findUserById",{
+                const  {data} = await this.$http.get("/findUserById",{
                     params:{"id":id}
                 });
                 if(data.code===1)
@@ -331,7 +331,7 @@
                this.$refs.editFormRef.validate(async valid=>{
                    if(valid==true)
                    {
-                       const  {data} = await this.$http.post("/admin/editUser",this.editForm);
+                       const  {data} = await this.$http.post("/editUser",this.editForm);
                        if(data.code===1)
                        {
                            this.$message.success("修改成功");
@@ -350,12 +350,12 @@
 
            },
          removeUser(id){
-                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(async  () => {
-                    const {data}= await this.$http.get("/admin/removeUser",{
+                    const {data}= await this.$http.get("/removeUser",{
                         params:{"id":id}
                     });
                     if(data.code==1)

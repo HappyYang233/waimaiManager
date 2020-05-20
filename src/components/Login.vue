@@ -54,7 +54,7 @@ export default {
                 if(x==true){
                     console.log(this);
                    let {data} =await this.$http.post(
-                        "/admin/login",
+                        "/login",
                         this.form
                     );
                     if(data.code==31){
@@ -75,6 +75,7 @@ export default {
                         sessionStorage.setItem("Token",token);
                         this.$store.commit("setUsername",msg.username);
                         this.$store.commit("setLeftMenu",msg.left);
+                        this.$store.commit("setResId",msg.resId);
                         initRouter();
                         this.$router.push("/home");
 
@@ -109,7 +110,7 @@ export default {
    .login_box{
         height: 300px;
         width: 450px;
-        border-radius: 3rpx;
+        border-radius: 3px;
         background-color: #fff;
         position:absolute;
         left:50%;

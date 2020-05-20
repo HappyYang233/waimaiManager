@@ -6,7 +6,6 @@
 
 <script>
   import {initRouter} from "./router";
-
   export default {
   name: 'app',
   created() {
