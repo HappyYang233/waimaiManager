@@ -9,9 +9,6 @@
             <!--头部-->
             <div slot="header" >
                 <el-row :gutter="40">
-                    <el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">
-                        <el-button slot="append" icon="el-icon-search"></el-button>
-                    </el-input></el-col>
                     <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加食堂</el-button></el-col>
                 </el-row>
             </div>
@@ -61,11 +58,16 @@
                         prop="status"
                         label="状态">
                     <template slot-scope="scope">
-                        <el-switch
-                                v-model="model"
-                                active-color="#13ce66"
-                                inactive-color="#ff4949">
-                        </el-switch>
+                        <el-tooltip :content="scope.row.status==0?'停运':'运营'" placement="top">
+                            <el-switch
+                                    v-model="scope.row.status"
+                                    active-color="#13ce66"
+                                    inactive-color="#ff4949"
+                                    :inactive-value="1"
+                                    :active-value="0"
+                                    @change="switchChange($event,scope.row.id,scope.$index,scope.row.resName)">
+                            </el-switch>
+                        </el-tooltip>
                     </template>
                 </el-table-column>
                 <el-table-column
@@ -316,6 +318,40 @@
                     });
                 });
             },
+          async  switchChange(e,id,index,resName)
+            {
+                console.log(e,'  ',id,'  ', index);
+                const  {data} = await this.$http.get("/changeResStatus",
+                    {
+                        params:{id:id,
+                            status:e
+                        }
+                    }
+                );
+                let action =(e===1?'停运':'启运');
+                if(data.code==1)
+                {
+
+                    this.$notify({
+                        title: '成功',
+                        message: resName+action+'成功',
+                        type: 'success'
+                    });
+                }
+                else
+                {
+                    this.$notify({
+                        title: '失败',
+                        message: resName+action+'失败',
+                        type: 'error'
+                    });
+                    if(e===1)
+                        this.resList[index].status=0;
+                    else {
+                        this.resList[index].status=1;
+                    }
+                }
+             },
             addDialogClosed(){
                 this.$refs.addFormRef.resetFields();
             }

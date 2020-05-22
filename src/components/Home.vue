@@ -29,7 +29,7 @@
                             <i class="el-icon-s-operation"></i>
                             <span>{{item.name}}</span>
                         </template>
-                        <el-menu-item :index="child.path" v-for="child in item.children" :key="child.id" >{{child.name}}</el-menu-item>
+                        <el-menu-item :index="child.path" v-for="child in item.children" :key="child.id" v-if="child.name!='订单统计'">{{child.name}}</el-menu-item>
 
                     </el-submenu>
 

@@ -34,13 +34,13 @@ const routes = [
       component:Home,
         children:[
             {path:'/welcome',component:Welcome},
-            {path:'/foodList',component:foodList},
-            {path:'/foodCategory',component:foodCategory},
-            {path:'/allOrder',component:allOrder},
-            {path:'/todayOrder',component:todayOrder},
-            {path:'/address',component:address},
-            {path:'/notice',component:notice},
-            {path:'/statisticsOrder',component:statisticsOrder}
+            // {path:'/foodList',component:foodList},
+            // {path:'/foodCategory',component:foodCategory},
+            // {path:'/allOrder',component:allOrder},
+            // {path:'/todayOrder',component:todayOrder},
+            // {path:'/address',component:address},
+            // {path:'/notice',component:notice},
+            // {path:'/statisticsOrder',component:statisticsOrder}
         ]
     },
       {
@@ -52,7 +52,21 @@ const routes = [
 const  ResInfo= {path:'/resInfo',component:resInfo};
 const   Admin ={path:'/admin',component:admin};
 const  Users ={path:'/users',component:users};
+const  FoodList={path:'/foodList',component:foodList};
+const FoodCategory={path:'/foodCategory',component:foodCategory};
+const  AllOrder={path:'/allOrder',component:allOrder};
+const  TodayOrder={path:'/todayOrder',component:todayOrder};
+const Addres= {path:'/address',component:address};
+const  Notice ={path:'/notice',component:notice};
+const  StatisticsOrder={path:'/statisticsOrder',component:statisticsOrder};
 const map = {
+    '/foodList':FoodList,
+    '/foodCategory':FoodCategory,
+    '/allOrder':AllOrder,
+    '/todayOrder':TodayOrder,
+    '/address':Addres,
+    '/notice':Notice,
+    '/statisticsOrder':StatisticsOrder,
       '/resInfo':ResInfo,
       '/users':Users,
       '/admin':Admin

@@ -10,7 +10,7 @@
             <div slot="header" >
                 <el-row :gutter="40">
 
-                    <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">打印订单</el-button></el-col>
+                    <!--<el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">打印订单</el-button></el-col>-->
                 </el-row>
             </div>
             <el-table

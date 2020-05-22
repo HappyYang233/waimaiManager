@@ -148,6 +148,11 @@
                     x1.string=string;
                     console.log(string);
                 });
+                let array = this.orderList.filter(item=>{
+                    if(item.status!=2)
+                        return item;
+                });
+                console.log(array);
                 // const  list =this.orderList[0].list;
                 // console.log(list);
                 // let  string ='';
@@ -157,7 +162,7 @@
                 // console.log(string);
                 // printJS('table', 'html')
                 printJS({
-                    printable: this.orderList,
+                    printable: array,
                     properties: [
                         {field:'num',displayName:'编号'},
                         {field:'foodType',displayName:'用餐类型'},

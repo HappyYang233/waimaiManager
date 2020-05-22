@@ -9,9 +9,9 @@
             <!--头部-->
             <div slot="header" >
                 <el-row :gutter="40">
-                    <el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">
-                        <el-button slot="append" icon="el-icon-search"></el-button>
-                    </el-input></el-col>
+                    <!--<el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">-->
+                        <!--<el-button slot="append" icon="el-icon-search"></el-button>-->
+                    <!--</el-input></el-col>-->
                     <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加菜品</el-button></el-col>
                 </el-row>
             </div>

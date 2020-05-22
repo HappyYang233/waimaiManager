@@ -9,9 +9,9 @@
             <!--头部-->
             <div slot="header" >
                 <el-row :gutter="40">
-                    <el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">
-                        <el-button slot="append" icon="el-icon-search"></el-button>
-                    </el-input></el-col>
+                    <!--<el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">-->
+                        <!--<el-button slot="append" icon="el-icon-search"></el-button>-->
+                    <!--</el-input></el-col>-->
                     <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true">添加用户</el-button></el-col>
                 </el-row>
             </div>
@@ -29,11 +29,11 @@
                         label="id"
                 >
                 </el-table-column>
-                <!--<el-table-column-->
-                        <!--prop="userName"-->
-                        <!--label="用户账号"-->
-                <!--&gt;-->
-                <!--</el-table-column>-->
+                <el-table-column
+                        prop="userName"
+                        label="用户账号"
+                >
+                </el-table-column>
                 <el-table-column
                         prop="trueName"
                         label="姓名"
@@ -63,18 +63,23 @@
                 <el-table-column
                         prop="type"
                         label="权限">
-                </el-table-column>
-                <el-table-column
-                        prop="status"
-                        label="状态">
                     <template slot-scope="scope">
-                        <el-switch
-                                v-model="model"
-                                active-color="#13ce66"
-                                inactive-color="#ff4949">
-                        </el-switch>
+                        <div>
+                            {{scope.row.type==0?'超级管理员':'食堂管理员'}}
+                        </div>
                     </template>
                 </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="status"-->
+                        <!--label="状态">-->
+                    <!--<template slot-scope="scope">-->
+                        <!--<el-switch-->
+                                <!--v-model="model"-->
+                                <!--active-color="#13ce66"-->
+                                <!--inactive-color="#ff4949">-->
+                        <!--</el-switch>-->
+                    <!--</template>-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop=""
                         label="操作">
@@ -155,7 +160,7 @@
                 </el-form-item>
                 <el-form-item label="权限" prop="type" >
                     <el-select v-model="editForm.type" placeholder="请选择权限">
-                        <el-option label="管理员" value="1"></el-option>
+                        <el-option label="食堂管理员" value="1"></el-option>
                         <el-option label="超级管理员" value="0"></el-option>
                     </el-select>
                 </el-form-item>
@@ -332,7 +337,7 @@
                        }
                        else
                        {
-                           this.$message.error("添加用户失败");
+                           this.$message.error(data.msg);
                        }
                    }
                    else

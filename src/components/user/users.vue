@@ -9,9 +9,9 @@
             <!--头部-->
             <div slot="header" >
                 <el-row :gutter="40">
-                    <el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">
-                        <el-button slot="append" icon="el-icon-search"></el-button>
-                    </el-input></el-col>
+                    <!--<el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">-->
+                        <!--<el-button slot="append" icon="el-icon-search"></el-button>-->
+                    <!--</el-input></el-col>-->
                     <el-col :span="6"><el-button type="primary" @click="dialogVisible=true;">添加用户</el-button></el-col>
                 </el-row>
             </div>
@@ -56,17 +56,17 @@
                         prop="addTime"
                         label="注册时间">
                 </el-table-column>
-                <el-table-column
-                        prop="status"
-                        label="状态">
-                    <template slot-scope="scope">
-                        <el-switch
-                                v-model="scope.row.status"
-                                active-color="#13ce66"
-                                inactive-color="#ff4949">
-                        </el-switch>
-                    </template>
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="status"-->
+                        <!--label="状态">-->
+                    <!--<template slot-scope="scope">-->
+                        <!--<el-switch-->
+                                <!--v-model="scope.row.status"-->
+                                <!--active-color="#13ce66"-->
+                                <!--inactive-color="#ff4949">-->
+                        <!--</el-switch>-->
+                    <!--</template>-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop=""
                         label="操作">

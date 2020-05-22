@@ -55,7 +55,7 @@
                 </el-table-column>
             </el-table>
             <el-dialog
-                    title="添加食堂"
+                    title="添加菜品分类"
                     :visible.sync="addDialogVisible"
                     width="50%"
                     @close="addDialogClosed"
