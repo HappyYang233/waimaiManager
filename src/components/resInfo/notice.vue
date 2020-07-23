@@ -91,19 +91,19 @@
                     <!--:total="total">-->
             <!--</el-pagination>-->
         </el-card>
-        <el-dialog
-                title="添加公告"
-                :visible.sync="addDialogVisible"
-                width="30%"
-                @close="addDialogClosed"
-        >
-            <!--<el-form :model="addForm" :rules="addRules" ref="addFormRef" label-width="100px" class="demo-ruleForm">-->
+        <!--<el-dialog-->
+                <!--title="添加公告"-->
+                <!--:visible.sync="addDialogVisible"-->
+                <!--width="30%"-->
+                <!--@close="addDialogClosed"-->
+        <!--&gt;-->
+            <!--<el-form :model="addForm" label-width="100px" class="demo-ruleForm">-->
                 <!--<el-form-item label="公告内容" prop="content">-->
-                    <!--<el-input v-model="addForm.foodName"></el-input>-->
+                    <!--<el-input v-model=""></el-input>-->
                 <!--</el-form-item>-->
                 <!--<el-form-item label="加入时间" prop="addTime">-->
                     <!--<el-date-picker-->
-                            <!--v-model="addForm.addTime"-->
+                            <!--v-model=""-->
                             <!--align="right"-->
                             <!--type="date"-->
                             <!--placeholder="选择日期"-->
@@ -122,46 +122,46 @@
                 <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
 
             <!--</el-form>-->
-            <span slot="footer" class="dialog-footer">
-    <el-button @click="addDialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="addFood">确 定</el-button>
-  </span>
-        <!--</el-dialog>-->
-        <!--<el-dialog title="修改商品信息" :visible.sync="editDialogVisible">-->
-            <!--<el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">-->
-                <!--<el-form-item label="商品名称" prop="foodName">-->
-                    <!--<el-input v-model="editForm.foodName" ></el-input>-->
-                <!--</el-form-item>-->
-                <!--<el-form-item label="商品分类" prop="">-->
-                    <!--<el-select v-model="editForm.cateId" placeholder="请选择分类">-->
-                        <!--<el-option :label="item.name" :value="item.id"-->
-                                   <!--v-for="item in cateList"-->
-                        <!--&gt;</el-option>-->
-                    <!--</el-select>-->
-                <!--</el-form-item>-->
-                <!--&lt;!&ndash;<el-form-item label="商品类型" prop="foodType">&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-select v-model="editForm.foodType" placeholder="请选择类型">&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-option label="午餐" value="午餐">&ndash;&gt;-->
-                <!--&lt;!&ndash;</el-option>&ndash;&gt;-->
-                <!--&lt;!&ndash;<el-option label="晚餐" value="晚餐">&ndash;&gt;-->
-                <!--&lt;!&ndash;</el-option>&ndash;&gt;-->
-                <!--&lt;!&ndash;</el-select>&ndash;&gt;-->
+            <!--<span slot="footer" class="dialog-footer">-->
+    <!--<el-button @click="addDialogVisible = false">取 消</el-button>-->
+    <!--<el-button type="primary" @click="addFood">确 定</el-button>-->
+  <!--</span>-->
+        <!--&lt;!&ndash;</el-dialog>&ndash;&gt;-->
+        <!--&lt;!&ndash;<el-dialog title="修改商品信息" :visible.sync="editDialogVisible">&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-form-item label="商品名称" prop="foodName">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input v-model="editForm.foodName" ></el-input>&ndash;&gt;-->
                 <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
-                <!--<el-form-item label="商品描述" prop="desc">-->
-                    <!--<el-input v-model.number="editForm.desc"></el-input>-->
-                <!--</el-form-item>-->
-                <!--<el-form-item label="商品图片url" prop="foodImageUrl">-->
-                    <!--<el-input v-model="editForm.foodImageUrl"></el-input>-->
-                <!--</el-form-item>-->
-                <!--<el-form-item label="价格" prop="price">-->
-                    <!--<el-input v-model.number="editForm.price"></el-input>-->
-                <!--</el-form-item>-->
-            <!--</el-form>-->
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="editDialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="handleEdit">确 定</el-button>
-            </div>
-        </el-dialog>
+                <!--&lt;!&ndash;<el-form-item label="商品分类" prop="">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-select v-model="editForm.cateId" placeholder="请选择分类">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<el-option :label="item.name" :value="item.id"&ndash;&gt;-->
+                                   <!--&lt;!&ndash;v-for="item in cateList"&ndash;&gt;-->
+                        <!--&lt;!&ndash;&gt;</el-option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</el-select>&ndash;&gt;-->
+                <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<el-form-item label="商品类型" prop="foodType">&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<el-select v-model="editForm.foodType" placeholder="请选择类型">&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<el-option label="午餐" value="午餐">&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;</el-option>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<el-option label="晚餐" value="晚餐">&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;</el-option>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;</el-select>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;</el-form-item>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-form-item label="商品描述" prop="desc">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input v-model.number="editForm.desc"></el-input>&ndash;&gt;-->
+                <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-form-item label="商品图片url" prop="foodImageUrl">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input v-model="editForm.foodImageUrl"></el-input>&ndash;&gt;-->
+                <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
+                <!--&lt;!&ndash;<el-form-item label="价格" prop="price">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input v-model.number="editForm.price"></el-input>&ndash;&gt;-->
+                <!--&lt;!&ndash;</el-form-item>&ndash;&gt;-->
+            <!--&lt;!&ndash;</el-form>&ndash;&gt;-->
+            <!--<div slot="footer" class="dialog-footer">-->
+                <!--<el-button @click="editDialogVisible = false">取 消</el-button>-->
+                <!--<el-button type="primary" @click="handleEdit">确 定</el-button>-->
+            <!--</div>-->
+        <!--</el-dialog>-->
     </div>
 </template>
 
@@ -171,7 +171,11 @@
         name: "notice",
         data(){
             return {
+                addDialogVisible:false,
                 editDialogVisible:false,
+                addForm:
+                   {content:"欢迎光临",addTime:"2020-7-10",status:"0"},
+
                 notice: [
                     {content:"欢迎光临",addTime:"2020-7-10",status:"0"}
                 ],

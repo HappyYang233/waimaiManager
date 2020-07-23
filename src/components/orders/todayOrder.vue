@@ -30,12 +30,7 @@
                         width="80px"
                 >
                 </el-table-column>
-                <el-table-column
-                        prop="num"
-                        label="当日编号"
-                        width="80px"
-                >
-                </el-table-column>
+               git-->
                 <!--<el-table-column-->
                         <!--prop="foodType"-->
                         <!--label="用餐类型"-->
