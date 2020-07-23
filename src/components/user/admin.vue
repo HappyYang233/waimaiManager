@@ -3,7 +3,7 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-            <el-breadcrumb-item>食堂用户</el-breadcrumb-item>
+            <el-breadcrumb-item>商户用户</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card class="box-card">
             <!--头部-->
@@ -41,7 +41,7 @@
                 </el-table-column>
                 <el-table-column
                         prop="resName"
-                        label="食堂名称"
+                        label="商户名称"
                 >
                 </el-table-column>
                 <el-table-column
@@ -65,7 +65,7 @@
                         label="权限">
                     <template slot-scope="scope">
                         <div>
-                            {{scope.row.type==0?'超级管理员':'食堂管理员'}}
+                            {{scope.row.type==0?'超级管理员':'商户管理员'}}
                         </div>
                     </template>
                 </el-table-column>
@@ -119,8 +119,8 @@
                 <el-form-item label="真实名字" prop="trueName">
                     <el-input v-model="addForm.trueName"></el-input>
                 </el-form-item>
-                <el-form-item label="所属食堂" prop="resName">
-                    <el-select v-model="addForm.resName" placeholder="请选择食堂">
+                <el-form-item label="所属商户" prop="resName">
+                    <el-select v-model="addForm.resName" placeholder="请选择商户">
                         <el-option :label="item.resName" :value="item.resName"
                             v-for="item in resList"
                         ></el-option>
@@ -160,7 +160,7 @@
                 </el-form-item>
                 <el-form-item label="权限" prop="type" >
                     <el-select v-model="editForm.type" placeholder="请选择权限">
-                        <el-option label="食堂管理员" value="1"></el-option>
+                        <el-option label="商户管理员" value="1"></el-option>
                         <el-option label="超级管理员" value="0"></el-option>
                     </el-select>
                 </el-form-item>
@@ -320,7 +320,7 @@
                     this.resList=data.msg;
                }
                else {
-                   this.$message.error("获取食堂列表失败");
+                   this.$message.error("获取商户列表失败");
                }
             },
             addAdmin(){

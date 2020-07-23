@@ -2,7 +2,7 @@
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>食堂信息管理</el-breadcrumb-item>
+            <el-breadcrumb-item>商户信息管理</el-breadcrumb-item>
             <el-breadcrumb-item>地址管理</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card class="box-card">
@@ -67,10 +67,10 @@
         </el-dialog>
         <el-dialog title="收货地址" :visible.sync="editDialogVisible">
             <el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">
-                <el-form-item label="食堂id" prop="id">
+                <el-form-item label="商户id" prop="id">
                     <el-input v-model="editForm.id" disabled></el-input>
                 </el-form-item>
-                <el-form-item label="食堂地址" prop="addressInfo">
+                <el-form-item label="商户地址" prop="addressInfo">
                     <el-input v-model="editForm.addressInfo"></el-input>
                 </el-form-item>
 

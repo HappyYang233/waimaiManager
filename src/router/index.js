@@ -64,7 +64,7 @@ const map = {
     '/foodCategory':FoodCategory,
     '/allOrder':AllOrder,
     '/todayOrder':TodayOrder,
-    '/address':Addres,
+    // '/address':Addres,
     '/notice':Notice,
     '/statisticsOrder':StatisticsOrder,
       '/resInfo':ResInfo,

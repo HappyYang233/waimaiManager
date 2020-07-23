@@ -2,8 +2,8 @@
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>菜品管理</el-breadcrumb-item>
-            <el-breadcrumb-item>菜品分类</el-breadcrumb-item>
+            <el-breadcrumb-item>商品管理</el-breadcrumb-item>
+            <el-breadcrumb-item>商品分类</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card class="box-card">
             <!--头部-->
@@ -22,11 +22,11 @@
             >
                 <el-table-column type="index" label="#">
                 </el-table-column>
-                <el-table-column
-                        prop="id"
-                        label="id"
-                >
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="id"-->
+                        <!--label="id"-->
+                <!--&gt;-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop="name"
                         label="分类名称">
@@ -55,7 +55,7 @@
                 </el-table-column>
             </el-table>
             <el-dialog
-                    title="添加菜品分类"
+                    title="添加商品分类"
                     :visible.sync="addDialogVisible"
                     width="50%"
                     @close="addDialogClosed"
@@ -84,7 +84,7 @@
     <el-button type="primary" @click="addCate">确 定</el-button>
   </span>
             </el-dialog>
-            <el-dialog title="收货地址" :visible.sync="editDialogVisible">
+            <el-dialog title="修改分类信息" :visible.sync="editDialogVisible">
                 <el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">
                     <el-form-item label="分类id" prop="id">
                         <el-input v-model="editForm.id" disabled></el-input>

@@ -3,7 +3,7 @@
         <el-header >
             <div>
                 <i class="el-icon-s-home"></i>
-                川师食堂外卖后台管理系统</div>
+                天投超市后台管理系统</div>
             <el-button @click="loginOut" type="primary">
                 {{username}}注销
             </el-button>
@@ -14,7 +14,7 @@
                 <el-menu
                         default-active="2"
                         class="el-menu-vertical-demo"
-                        background-color="#323744"
+                        background-color="#2C3E50"
                         text-color="#fff"
                         active-text-color="#ffd04b"
                         :unique-opened="true"
@@ -26,10 +26,10 @@
                     <el-submenu :index="item.id+''"  v-for='item in menuList' :key="item.id">
                         <!--template是 子菜单的模板-->
                         <template slot="title">
-                            <i class="el-icon-s-operation"></i>
+                            <i class="el-icon-menu"></i>
                             <span>{{item.name}}</span>
                         </template>
-                        <el-menu-item :index="child.path" v-for="child in item.children" :key="child.id" v-if="child.name!='订单统计'">{{child.name}}</el-menu-item>
+                        <el-menu-item v-if="child.path!='/address'" :index="child.path" v-for="child in item.children" :key="child.id">{{child.name}}</el-menu-item>
 
                     </el-submenu>
 
@@ -53,7 +53,9 @@
         },
         created(){
           this.menuList=this.leftMenu;
+          console.log("1111111"+ this.menuList.toString());
           this.username=sessionStorage.getItem("username");
+
         },
         methods:{
             toggleCollapse(){
@@ -90,7 +92,8 @@
 
    }
     .el-header{
-        background-color: #373c41;
+        /*background-color: #373c41;*/
+        background-color:#2C3E50;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -98,13 +101,13 @@
         color: #fff;
     }
     .el-aside{
-        background-color: #323744;
+        background-color: #2C3E50;
         .el-menu{
             border-right: none;
 
         }
         .toggle-button{
-            background-color: #4a5064;
+            background-color: #2C3E50;
             font-size: 10px;
             line-height: 24px;
             letter-spacing: 0.2em;

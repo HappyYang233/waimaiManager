@@ -2,8 +2,8 @@
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>菜品管理</el-breadcrumb-item>
-            <el-breadcrumb-item>菜品列表</el-breadcrumb-item>
+            <el-breadcrumb-item>商品管理</el-breadcrumb-item>
+            <el-breadcrumb-item>商品列表</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card class="box-card">
             <!--头部-->
@@ -12,7 +12,7 @@
                     <!--<el-col :span="10"> <el-input placeholder="请输入用户名" class="input-with-select">-->
                         <!--<el-button slot="append" icon="el-icon-search"></el-button>-->
                     <!--</el-input></el-col>-->
-                    <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加菜品</el-button></el-col>
+                    <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加商品</el-button></el-col>
                 </el-row>
             </div>
             <el-table
@@ -23,33 +23,33 @@
             >
                 <el-table-column type="index" label="#">
                 </el-table-column>
-                <el-table-column
-                        prop="id"
-                        label="id"
-                        width="80px"
-                >
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="id"-->
+                        <!--label="id"-->
+                        <!--width="80px"-->
+                <!--&gt;-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop="foodName"
-                        label="菜品名称"
+                        label="商品名称"
                 >
                 </el-table-column>
                 <el-table-column
                         prop="cateName"
-                        label="菜品所属分类">
+                        label="商品所属分类">
                 </el-table-column>
-                <el-table-column
-                        prop="foodType"
-                        label="菜品类型"
-                        width="80px"
-                >
-                    <template slot-scope="scope">
-                        <div>{{scope.row.foodType==0?'午餐':'晚餐'}}</div>
-                    </template>
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="foodType"-->
+                        <!--label="商品类型"-->
+                        <!--width="80px"-->
+                <!--&gt;-->
+                    <!--<template slot-scope="scope">-->
+                        <!--<div>{{scope.row.foodType==0?'午餐':'晚餐'}}</div>-->
+                    <!--</template>-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop="foodImageUrl"
-                        label="菜品图片"
+                        label="商品图片"
                 >
                     <template slot-scope="scope">
                         <!--<img :src="scope.row.resImageUrl" min-width="120" height="70">-->
@@ -63,12 +63,12 @@
                 </el-table-column>
                 <el-table-column
                         prop="price"
-                        label="菜品价格">
+                        label="商品价格">
                 </el-table-column>
-                <el-table-column
-                        prop="totalSales"
-                        label="总销量">
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="totalSales"-->
+                        <!--label="总销量">-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop="addTime"
                         label="加入时间">
@@ -116,34 +116,34 @@
             </el-pagination>
         </el-card>
         <el-dialog
-                title="添加菜品"
+                title="添加商品"
                 :visible.sync="addDialogVisible"
                 width="30%"
                 @close="addDialogClosed"
         >
             <el-form :model="addForm" :rules="addRules" ref="addFormRef" label-width="100px" class="demo-ruleForm">
-                <el-form-item label="菜品名" prop="foodName">
+                <el-form-item label="商品名" prop="foodName">
                     <el-input v-model="addForm.foodName"></el-input>
                 </el-form-item>
-                <el-form-item label="菜品分类" prop="cateId">
+                <el-form-item label="商品分类" prop="cateId">
                     <el-select v-model="addForm.cateId" placeholder="请选择分类">
                         <el-option :label="item.name" :value="item.id"
                                                  v-for="item in cateList"
                     ></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="菜品类型" prop="foodType">
-                    <el-select v-model="addForm.foodType" placeholder="请选择类型">
-                        <el-option label="午餐" value="午餐">
-                        </el-option>
-                        <el-option label="晚餐" value="晚餐">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="菜品描述" prop="desc">
+                <!--<el-form-item label="商品类型" prop="foodType">-->
+                    <!--<el-select v-model="addForm.foodType" placeholder="请选择类型">-->
+                        <!--<el-option label="午餐" value="午餐">-->
+                        <!--</el-option>-->
+                        <!--<el-option label="晚餐" value="晚餐">-->
+                        <!--</el-option>-->
+                    <!--</el-select>-->
+                <!--</el-form-item>-->
+                <el-form-item label="商品描述" prop="desc">
                     <el-input v-model="addForm.desc"></el-input>
                 </el-form-item>
-                <el-form-item label="菜品图片链接" prop="foodImageUrl">
+                <el-form-item label="商品图片链接" prop="foodImageUrl">
                     <el-input v-model.number="addForm.foodImageUrl"></el-input>
                 </el-form-item>
                 <el-form-item label="价格" prop="price">
@@ -166,30 +166,30 @@
     <el-button type="primary" @click="addFood">确 定</el-button>
   </span>
         </el-dialog>
-        <el-dialog title="收货地址" :visible.sync="editDialogVisible">
+        <el-dialog title="修改商品信息" :visible.sync="editDialogVisible">
             <el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">
-                <el-form-item label="菜品名称" prop="foodName">
+                <el-form-item label="商品名称" prop="foodName">
                     <el-input v-model="editForm.foodName" ></el-input>
                 </el-form-item>
-                <el-form-item label="菜品分类" prop="">
+                <el-form-item label="商品分类" prop="">
                     <el-select v-model="editForm.cateId" placeholder="请选择分类">
                         <el-option :label="item.name" :value="item.id"
                                    v-for="item in cateList"
                         ></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="菜品类型" prop="foodType">
-                    <el-select v-model="editForm.foodType" placeholder="请选择类型">
-                        <el-option label="午餐" value="午餐">
-                        </el-option>
-                        <el-option label="晚餐" value="晚餐">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="菜品描述" prop="desc">
+                <!--<el-form-item label="商品类型" prop="foodType">-->
+                    <!--<el-select v-model="editForm.foodType" placeholder="请选择类型">-->
+                        <!--<el-option label="午餐" value="午餐">-->
+                        <!--</el-option>-->
+                        <!--<el-option label="晚餐" value="晚餐">-->
+                        <!--</el-option>-->
+                    <!--</el-select>-->
+                <!--</el-form-item>-->
+                <el-form-item label="商品描述" prop="desc">
                     <el-input v-model.number="editForm.desc"></el-input>
                 </el-form-item>
-                <el-form-item label="菜品图片url" prop="foodImageUrl">
+                <el-form-item label="商品图片url" prop="foodImageUrl">
                     <el-input v-model="editForm.foodImageUrl"></el-input>
                 </el-form-item>
                 <el-form-item label="价格" prop="price">
@@ -231,13 +231,13 @@
                 },
                 addRules:{
                     foodName:[
-                        {required:true ,message:"请输入菜品名",trigger:"blur"}
+                        {required:true ,message:"请输入商品名",trigger:"blur"}
                     ],
                     cateId:[
-                        {required:true ,message:"请选择菜品分类",trigger:"change"}
+                        {required:true ,message:"请选择商品分类",trigger:"change"}
                     ],
                     foodType:[
-                        {required:true ,message:"请选择菜品类型",trigger:"change"}
+                        {required:true ,message:"请选择商品类型",trigger:"change"}
                     ],
                     foodImageUrl:[
                         {required: true ,message: "请输入图片链接", trigger: "blur"}
@@ -258,13 +258,13 @@
                 editForm:{},
                 editFormRules: {
                     foodName:[
-                        {required:true ,message:"请输入菜品名",trigger:"blur"}
+                        {required:true ,message:"请输入商品名",trigger:"blur"}
                     ],
                     cateId:[
-                        {required:true ,message:"请选择菜品分类",trigger:"change"}
+                        {required:true ,message:"请选择商品分类",trigger:"change"}
                     ],
                     foodType:[
-                        {required:true ,message:"请选择菜品类型",trigger:"change"}
+                        {required:true ,message:"请选择商品类型",trigger:"change"}
                     ],
                     foodImageUrl:[
                         {required: true ,message: "请输入图片链接", trigger: "blur"}
@@ -418,7 +418,7 @@
             },
             async removeFood(id)
             {
-                this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+                this.$confirm('此操作将永久删除该商品, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'

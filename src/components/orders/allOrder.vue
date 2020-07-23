@@ -26,11 +26,11 @@
                         label="订单编号"
                 >
                 </el-table-column>
-                <el-table-column
-                        prop="num"
-                        label="当日编号"
-                >
-                </el-table-column>
+                <!--<el-table-column-->
+                        <!--prop="num"-->
+                        <!--label="当日编号"-->
+                <!--&gt;-->
+                <!--</el-table-column>-->
                 <el-table-column
                         prop="list"
                         label="订单菜品" min-width="180">

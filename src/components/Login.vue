@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="title">
-            食堂外卖管理系统
+            天投超市管理系统
         </div>
        <div class="login_box">
            <div class="avatar_box">
@@ -105,7 +105,7 @@ export default {
         text-align: center;
         height: 150px;
         line-height: 150px;
-        color: #303133;
+        color: white;
     }
    .login_box{
         height: 300px;

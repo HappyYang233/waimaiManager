@@ -11,10 +11,9 @@ import axios from 'axios'
 import  store from './store/index';
 import print from 'print-js';
 import { Message ,MessageBox} from 'element-ui';
-
+Vue.use(ElementUI);
 Vue.prototype.$message = Message;
 Vue.prototype.$messageBox=MessageBox;
-Vue.use(ElementUI);
 
 Date.prototype.Format = function(fmt)
 { //author: meizz
@@ -35,7 +34,8 @@ Date.prototype.Format = function(fmt)
     return fmt;
 };
 //配置公共的请求头
-axios.defaults.baseURL = 'http://localhost:8080/admin';
+// axios.defaults.baseURL = 'http://121.36.50.195:8082/admin';
+axios.defaults.baseURL = 'http://121.36.50.195:8084/admin';
 // 配置 超时时间
 axios.defaults.timeout = 2500;
 axios.interceptors.request.use(

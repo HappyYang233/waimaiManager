@@ -2,14 +2,14 @@
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>食堂信息管理</el-breadcrumb-item>
+            <el-breadcrumb-item>商家信息管理</el-breadcrumb-item>
             <el-breadcrumb-item>基本信息管理</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card class="box-card">
             <!--头部-->
             <div slot="header" >
                 <el-row :gutter="40">
-                    <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加食堂</el-button></el-col>
+                    <el-col :span="6"><el-button type="primary" @click="addDialogVisible=true;">添加商家</el-button></el-col>
                 </el-row>
             </div>
             <el-table
@@ -28,7 +28,7 @@
                 </el-table-column>
                 <el-table-column
                         prop="resName"
-                        label="食堂名称"
+                        label="商店名称"
                 >
                 </el-table-column>
                 <el-table-column
@@ -41,7 +41,7 @@
                 </el-table-column>
                 <el-table-column
                         prop="resImageUrl"
-                        label="食堂首页图片"
+                        label="商家首页图片"
                 >
                     <template slot-scope="scope">
                         <!--<img :src="scope.row.resImageUrl" min-width="120" height="70">-->
@@ -86,13 +86,13 @@
             </el-table>
         </el-card>
         <el-dialog
-                title="添加食堂"
+                title="添加商家"
                 :visible.sync="addDialogVisible"
                 width="50%"
                 @close="addDialogClosed"
         >
             <el-form :model="addForm" :rules="addRules" ref="addFormRef" label-width="100px" class="demo-ruleForm">
-                <el-form-item label="食堂名称" prop="resName">
+                <el-form-item label="商家名称" prop="resName">
                     <el-input v-model="addForm.resName"></el-input>
                 </el-form-item>
                 <el-form-item label="联系人姓名" prop="contactName">
@@ -101,7 +101,7 @@
                 <el-form-item label="联系人手机号码" prop="contactMobile">
                     <el-input v-model.number="addForm.contactMobile"></el-input>
                 </el-form-item>
-                <el-form-item label="食堂图片url" prop="resImageUrl">
+                <el-form-item label="商家图片url" prop="resImageUrl">
                     <el-input v-model="addForm.resImageUrl"></el-input>
                 </el-form-item>
             </el-form>
@@ -110,12 +110,12 @@
     <el-button type="primary" @click="addRes">确 定</el-button>
   </span>
         </el-dialog>
-        <el-dialog title="收货地址" :visible.sync="editDialogVisible">
+        <el-dialog title="商家信息" :visible.sync="editDialogVisible">
             <el-form ref="editFormRef" :model="editForm" :rules="editFormRules"label-width="80px">
-                <el-form-item label="食堂名称" prop="id">
+                <el-form-item label="商户编号" prop="id">
                     <el-input v-model="editForm.id" disabled></el-input>
                 </el-form-item>
-                <el-form-item label="食堂名称" prop="resName">
+                <el-form-item label="商家名称" prop="resName">
                     <el-input v-model="editForm.resName"></el-input>
                 </el-form-item>
                 <el-form-item label="联系人姓名" prop="contactName">
@@ -124,7 +124,7 @@
                 <el-form-item label="联系人手机号码" prop="contactMobile">
                     <el-input v-model.number="editForm.contactMobile"></el-input>
                 </el-form-item>
-                <el-form-item label="食堂图片url" prop="resImageUrl">
+                <el-form-item label="商家图片url" prop="resImageUrl">
                     <el-input v-model="editForm.resImageUrl"></el-input>
                 </el-form-item>
             </el-form>
@@ -162,7 +162,7 @@
                     ],
                     resName:[
                         {
-                            required:true ,message:"请输入食堂名字",trigger:"blur"
+                            required:true ,message:"请输入商家名字",trigger:"blur"
                         },
 
                         { min: 3, max: 15, message: '长度在 1到 10个字符', trigger: 'blur' }
@@ -197,7 +197,7 @@
                     ],
                     resName:[
                         {
-                            required:true ,message:"请输入食堂名字",trigger:"blur"
+                            required:true ,message:"请输入商家名字",trigger:"blur"
                         },
 
                         { min: 3, max: 15, message: '长度在 1到 10个字符', trigger: 'blur' }
@@ -246,13 +246,13 @@
                             this.addForm);
                         if(data.code===1)
                         {
-                            this.$message.success("添加食堂成功");
+                            this.$message.success("添加商家成功");
                             this.addDialogVisible=false;
                             this.getResList();
                         }
                         else
                         {
-                            this.$message.error("添加食堂失败");
+                            this.$message.error("添加商家失败");
                         }
                     }
                     else
@@ -292,7 +292,7 @@
                 })
             },
             removeRes(id){
-                this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+                this.$confirm('此操作将永久删除该商家, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
