@@ -5,7 +5,7 @@
         </div>
        <div class="login_box">
            <div class="avatar_box">
-               <img src="../assets/logo.png" alt="">
+               <img src="../assets/logo.jpg" alt="">
            </div>
            <el-form  ref="loginForm" label-width="80px" class="login_form" :rules="rules" :model="form">
             <el-form-item label="用户名" prop="username">
@@ -18,7 +18,6 @@
                 <el-button type="primary"@click="handleLogin">登录</el-button>
                 <el-button type="info" @click="handleReset">重置</el-button>
             </el-form-item>
-
            </el-form>
        </div>
     </div>
@@ -118,14 +117,14 @@ export default {
         transform: translate(-50%,-50%);
         ;
         .avatar_box{
-            padding: 10px;
+      
             border-radius: 50%;
             background-color: #fff;
             box-shadow: 0 0 10px #ddd;
             border:1px solid #eee;
             position:absolute;
-            height: 130px;
-            width: 130px;
+            height: 100px;
+            width: 100px;
             left: 50%;
             transform: translate(-50%,-50%);
 
